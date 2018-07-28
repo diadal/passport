@@ -98,10 +98,32 @@ Next, you should run the `passport:install` command
 php artisan passport:install
 ```
 
+Final step @ `vendor/laravel/passport/src/Client.php` here add `public $incrementing = false;` and whenever you upgrade Laravel Passport check if `public $incrementing = false;` still present am looking for a better way to impliment this so there won't be a futher need to edit in `vendor/laravel/passport/src/Client.php`  
 
+```php
+namespace Laravel\Passport;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Client extends Model
+{
+    public $incrementing = false;
+    // 
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'oauth_clients';
+
+```
+
+All default Laravel Passport remain the same  
 
 ## Official Documentation
 
 Documentation for Passport can be found on the [Laravel website](http://laravel.com/docs/master/passport).
+
+Subitm any issue <a href="https://github.com/diadal/passport/issues">check here</a> 
 
 
