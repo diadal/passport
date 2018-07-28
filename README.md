@@ -46,10 +46,8 @@ Laravel 5.5 hight auto discover package  you may need to register in your config
 Diadal\Passport\PassportServiceProvider::class,
 ```
 
-In 
-```php
-app/Providers/AuthServiceProvider.php
-```
+Next In AuthServiceProvider @ `app/Providers/AuthServiceProvider.php` add `use Diadal\Passport\Passport;`
+
 ```php
 <?php
 
