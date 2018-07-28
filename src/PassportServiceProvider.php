@@ -13,7 +13,7 @@ class PassportServiceProvider extends PassportServiceProviderDiadal
      */
      public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'passport');
+        $this->loadViewsFrom(base_path('vendor/laravel/passport/resources/views'), 'passport');
 
         $this->deleteCookieOnLogout();
 
@@ -21,11 +21,11 @@ class PassportServiceProvider extends PassportServiceProviderDiadal
             $this->registerMigrations();
 
             $this->publishes([
-                __DIR__.'/../resources/views' => base_path('resources/views/vendor/passport'),
+                base_path('vendor/laravel/passport/resources/views') => base_path('resources/views/vendor/passport'),
             ], 'passport-views');
 
             $this->publishes([
-                __DIR__.'/../resources/assets/js/components' => base_path('resources/assets/js/components/passport'),
+                base_path('vendor/laravel/passport/resources/assets/js/components') => base_path('resources/assets/js/components/passport'),
             ], 'passport-components');
 
             $this->commands([
