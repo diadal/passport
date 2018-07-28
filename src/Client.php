@@ -15,7 +15,7 @@ class Client extends ClientDiadal
         return (strtolower($value));
     }
 
-    public function setIdAttribute($value)
+    public function setIdAttribute()
     {
         $id = \Uuid::generate(4);
         

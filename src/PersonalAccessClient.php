@@ -17,9 +17,11 @@ class PersonalAccessClient extends PersonalAccessClientDiadal
     }
     public function setIdAttribute($value)
     {
-        $this->attributes['id'] = strtoupper($value);
+        $id = \Uuid::generate(4);
+        
+        $this->attributes['id'] = strtoupper($id);  
+        
     }
-
     public function setClientIdAttribute($value)
     {   
         $this->attributes['client_id'] = strtoupper($value);
