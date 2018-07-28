@@ -145,6 +145,6 @@ All default Laravel Passport remain the same
 
 Documentation for Passport can be found on the [Laravel website](http://laravel.com/docs/master/passport).
 
-Subitm any issue <a href="https://github.com/diadal/passport/issues">check here</a> 
+Any issue <a href="https://github.com/diadal/passport/issues">check here</a> 
 
 
