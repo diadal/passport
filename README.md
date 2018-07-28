@@ -98,7 +98,7 @@ Next, you should run the `passport:install` command
 php artisan passport:install
 ```
 
-Final step @ `vendor/laravel/passport/src/Client.php` here add `public $incrementing = false;` and whenever you upgrade Laravel Passport check if `public $incrementing = false;` still present am looking for a better way to impliment this so there won't be a futher need to edit in `vendor/laravel/passport/src/Client.php`  
+Final step @ `vendor/laravel/passport/src/Client.php` here add `public $incrementing = false;` and whenever you upgrade Laravel Passport check if `public $incrementing = false;` still present, am looking for a better way to implement this so there won't be a further need to edit in `vendor/laravel/passport/src/Client.php`  
 
 ```php
 namespace Laravel\Passport;
