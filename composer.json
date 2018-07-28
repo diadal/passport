@@ -1,5 +1,5 @@
 {
-    "name": "diadal/passport-cilent",
+    "name": "diadal/passport",
     "description": "Convert client_id to Uuid in Laravel Passport",
     "keywords": ["laravel", "framework", "Laravel Passport" ,"Uuid", "client Uuid"],
     "type": "library",
