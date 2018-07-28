@@ -1,7 +1,5 @@
-# Convert client_id to Uuid in Laravel Passport
 
-
-<!-- <p align="center"><img src="https://laravel.com/assets/img/components/logo-passport.svg"></p> -->
+<p align="center"># Convert client_id to Uuid in Laravel Passport></p>
 
 <p align="center">
 <a href="https://travis-ci.org/diadal/passport"><img src="https://travis-ci.org/diadal/passport.svg?branch=master" alt="Build Status"></a>
