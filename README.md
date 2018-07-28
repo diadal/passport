@@ -96,7 +96,7 @@ Next, you should run the `passport:install` command
 php artisan passport:install
 ```
 
-Next the default config in `config/uuid.php`   to `'default_uuid_column' => 'id',` if you dont have uuid.php in your config folder create 1 
+Next change the default config in `config/uuid.php`   to `'default_uuid_column' => 'id',` if you dont have uuid.php in your config folder create 1 
 
 ```php
 <?php
