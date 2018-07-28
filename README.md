@@ -3,7 +3,7 @@
 
 <p align="center">
 <a href="https://travis-ci.org/diadal/passport"><img src="https://travis-ci.org/diadal/passport.svg?branch=master" alt="Build Status"></a>
-<a href="https://packagist.org/packages/diadal/passport"><img src="https://poser.pugx.org/diadal/passport/d/total.svg" alt="Total Downloads"></a>
+<!-- <a href="https://packagist.org/packages/diadal/passport"><img src="https://poser.pugx.org/diadal/passport/d/total.svg" alt="Total Downloads"></a> -->
 <!-- <a href="https://packagist.org/packages/diadal/passport"><img src="https://poser.pugx.org/diadal/passport/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/diadal/passport"><img src="https://poser.pugx.org/diadal/passport/license.svg" alt="License"></a> -->
 </p>
@@ -145,6 +145,6 @@ All default Laravel Passport remain the same
 
 Documentation for Passport can be found on the [Laravel website](http://laravel.com/docs/master/passport).
 
-Subitm any issue <a href="https://github.com/diadal/passport/issues">check here</a> 
+Any issue <a href="https://github.com/diadal/passport/issues">check here</a> 
 
 
