@@ -21,14 +21,11 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.5-dev"
+            "dev-master": "1.0.6-dev"
         },
         "laravel": {
-          "providers": [
-            "Diadal\\Passport\\PassportServiceProvider"
-        ],
           "dont-discover": [
-            "diadal/Http"
+            "Diadal\\Passport\\PassportServiceProvider"
           ]
         }
     },
