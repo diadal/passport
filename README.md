@@ -4,8 +4,8 @@
 <p align="center">
 <a href="https://travis-ci.org/diadal/passport"><img src="https://travis-ci.org/diadal/passport.svg?branch=master" alt="Build Status"></a>
 <a href="https://packagist.org/packages/diadal/passport"><img src="https://poser.pugx.org/diadal/passport/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/diadal/passport"><img src="https://poser.pugx.org/diadal/passport/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/diadal/passport"><img src="https://poser.pugx.org/diadal/passport/license.svg" alt="License"></a>
+<!-- <a href="https://packagist.org/packages/diadal/passport"><img src="https://poser.pugx.org/diadal/passport/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/diadal/passport"><img src="https://poser.pugx.org/diadal/passport/license.svg" alt="License"></a> -->
 </p>
 
 
@@ -46,10 +46,8 @@ Laravel 5.5 hight auto discover package  you may need to register in your config
 Diadal\Passport\PassportServiceProvider::class,
 ```
 
-In 
-```php
-app/Providers/AuthServiceProvider.php
-```
+Next In AuthServiceProvider @ `app/Providers/AuthServiceProvider.php` add `use Diadal\Passport\Passport;`
+
 ```php
 <?php
 
@@ -98,7 +96,30 @@ Next, you should run the `passport:install` command
 php artisan passport:install
 ```
 
-Final step @ `vendor/laravel/passport/src/Client.php` here add `public $incrementing = false;` and whenever you upgrade Laravel Passport check if `public $incrementing = false;` still present am looking for a better way to impliment this so there won't be a futher need to edit in `vendor/laravel/passport/src/Client.php`  
+Next change the default config in `config/uuid.php`   to `'default_uuid_column' => 'id',` if you dont have uuid.php in your config folder create 1 
+
+```php
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Uuid Column
+    |--------------------------------------------------------------------------
+    |
+    | Every model that needs to be scoped by uuid
+    | should have a uuid column that reference the uuid value.
+    |
+    */
+
+    'default_uuid_column' => 'id',
+
+];
+```
+
+
+Final step @ `vendor/laravel/passport/src/Client.php` here add `public $incrementing = false;` and whenever you upgrade Laravel Passport check if `public $incrementing = false;` still present, am looking for a better way to implement this so there won't be a further need to edit in `vendor/laravel/passport/src/Client.php`  
 
 ```php
 namespace Laravel\Passport;

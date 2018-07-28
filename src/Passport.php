@@ -40,7 +40,7 @@ class Passport extends PassportDiadal
 
         $defaultOptions = [
             'prefix' => 'oauth',
-            'namespace' => '\Diadal\Passport\Controllers',
+            'namespace' => '\Diadal\Passport\Http\Controllers',
         ];
 
         $options = array_merge($defaultOptions, $options);
