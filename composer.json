@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-       
+       "php": ">=7.1",
        "webpatser/laravel-uuid": "^3.0",
        "laravel/passport": "^6.0"
     },
@@ -20,10 +20,18 @@
         }
     },
     "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.1-dev"
+        },
         "laravel": {
           "providers": [
             "Diadal\\Passport\\PassportServiceProvider"
           ]
         }
-    }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
