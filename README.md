@@ -96,6 +96,29 @@ Next, you should run the `passport:install` command
 php artisan passport:install
 ```
 
+Next the default config in `config/uuid.php`   to `'default_uuid_column' => 'id',` if you dont have uuid.php in your config folder create 1 
+
+```php
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Uuid Column
+    |--------------------------------------------------------------------------
+    |
+    | Every model that needs to be scoped by uuid
+    | should have a uuid column that reference the uuid value.
+    |
+    */
+
+    'default_uuid_column' => 'id',
+
+];
+```
+
+
 Final step @ `vendor/laravel/passport/src/Client.php` here add `public $incrementing = false;` and whenever you upgrade Laravel Passport check if `public $incrementing = false;` still present, am looking for a better way to implement this so there won't be a further need to edit in `vendor/laravel/passport/src/Client.php`  
 
 ```php
