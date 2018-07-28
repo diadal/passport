@@ -8,11 +8,9 @@ use Emadadly\LaravelUuid\Uuids;
 class ClientRepository extends ClientRepositoryDiadal
 {
     use Uuids;
-    
     public function create($userId, $name, $redirect, $personalAccess = false, $password = false)
     {
         $client = Passport::client()->forceFill([
-            'id'=> \Uuid::generate(4),
             'user_id' => strtoupper($userId),
             'name' => $name,
             'secret' => str_random(40),
@@ -26,5 +24,14 @@ class ClientRepository extends ClientRepositoryDiadal
 
         return $client;
     }
+    public function createPersonalAccessClient($userId, $name, $redirect)
+    {
+        return tap($this->create($userId, $name, $redirect, true), function ($client) {
+            $accessClient = Passport::personalAccessClient();
+            $accessClient->client_id = $client->id;
+            $accessClient->save();
+        });
+    }
+
 
 }
