@@ -1,14 +1,21 @@
 language: php
 
-php:
-  - 7.1
-  - 7.2
+matrix:
+  fast_finish: true
+  include:
+    - php: 7.0
+    - php: 7.1
+    - php: 7.2
 
 sudo: false
 
 before_install:
-  - phpenv config-rm xdebug.ini || true
+  - travis_retry composer self-update
 
-install: travis_retry composer install --no-interaction --prefer-dist --no-suggest
+install:
+  - travis_retry composer update --prefer-dist --no-interaction --prefer-stable --no-suggest
 
-script: vendor/bin/phpunit --verbose
+script: vendor/bin/phpunit --coverage-text
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
