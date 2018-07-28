@@ -1,5 +1,5 @@
 
-<p align="center"># Convert client_id to Uuid in Laravel Passport></p>
+# <p align="center">Convert client_id to Uuid in Laravel Passport</p>
 
 <p align="center">
 <a href="https://travis-ci.org/diadal/passport"><img src="https://travis-ci.org/diadal/passport.svg?branch=master" alt="Build Status"></a>
@@ -45,6 +45,59 @@ Laravel 5.5 hight auto discover package  you may need to register in your config
 ```php
 Diadal\Passport\PassportServiceProvider::class,
 ```
+
+In 
+```php
+app/Providers/AuthServiceProvider.php
+```
+```php
+<?php
+
+namespace App\Providers;
+
+use Diadal\Passport\Passport;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
+class AuthServiceProvider extends ServiceProvider
+{
+    /**
+     * The policy mappings for the application.
+     *
+     * @var array
+     */
+    protected $policies = [
+        'App\Model' => 'App\Policies\ModelPolicy',
+    ];
+
+    /**
+     * Register any authentication / authorization services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->registerPolicies();
+
+        Passport::routes();
+
+        Passport::tokensCan([
+            'all' => 'All Function',
+            'create-invoice' => 'Create Invoice',
+        ]);
+
+        Passport::tokensExpireIn(now()->addDays(15));
+
+        Passport::refreshTokensExpireIn(now()->addDays(30));
+    }
+}
+
+```
+Next, you should run the `passport:install` command
+```php
+php artisan passport:install
+```
+
 
 
 ## Official Documentation
