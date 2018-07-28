@@ -1,6 +1,6 @@
 {
     "name": "diadal/passport-cilent",
-    "description": "Convert client id to Uuid in Laravel Passport",
+    "description": "Convert client_id to Uuid in Laravel Passport",
     "keywords": ["laravel", "framework", "Laravel Passport" ,"Uuid", "client Uuid"],
     "type": "library",
     "license": "MIT",
