@@ -26,7 +26,7 @@ Laravel 5.5 hight auto discover package  you may need to register in your config
 Diadal\Passport\PassportServiceProvider::class,
 ```
 ```php
-php artisan config:cache
+php artisan config:clear
 ```
 
 To publish Cilent Uuid migration use this 
@@ -43,7 +43,7 @@ php artisan vendor:publish --tag=passport-migrations
 
 if no file published try 
 ```php
-php artisan config:cache
+php artisan config:clear
 ```
 
 ### Note you can use this both
