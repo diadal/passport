@@ -21,12 +21,22 @@ This Package will enable you you convert client id and client_id to Uuid which i
 composer require diadal/passport
 ```
 
-Laravel 5.5 hight auto discover package  you may need to register in your config app.php
+Laravel 5.5 hight auto discover package  you may need to register in your config app.php under `providers`
 ```php
 Diadal\Passport\PassportServiceProvider::class,
 ```
+Next in `app/Providers/AppServiceProvider.php` add `\Laravel\Passport\Passport::ignoreMigrations();` to `register`
 ```php
-php artisan config:cache
+public function register()
+    {
+        //....
+        \Laravel\Passport\Passport::ignoreMigrations();
+    }
+```
+
+Next
+```php
+php artisan config:clear
 ```
 
 To publish Cilent Uuid migration use this 
@@ -43,7 +53,7 @@ php artisan vendor:publish --tag=passport-migrations
 
 if no file published try 
 ```php
-php artisan config:cache
+php artisan config:clear
 ```
 
 ### Note you can use this both
@@ -103,6 +113,10 @@ class AuthServiceProvider extends ServiceProvider
 Next, you should run the `passport:install` command
 ```php
 php artisan passport:install
+```
+Next, to create `config/uuid.php` file
+```php
+Discovered Package: webpatser/laravel-uuid
 ```
 
 Next change the default config in `config/uuid.php`   to `'default_uuid_column' => 'id',` if you dont have uuid.php in your config folder create 1 
