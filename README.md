@@ -44,17 +44,12 @@ To publish Cilent Uuid migration use this
 ```php
 php artisan vendor:publish --tag=passport-cilent-migrations
 ```
-or
-To publish Default migration use this
-
-```php
-php artisan vendor:publish --tag=passport-migrations
-```
 
 if no file published try 
 ```php
 php artisan config:clear
 ```
+and retry `php artisan vendor:publish --tag=passport-cilent-migrations`
 
 ### Note you can use this both
 
