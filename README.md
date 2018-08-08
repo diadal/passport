@@ -21,10 +21,20 @@ This Package will enable you you convert client id and client_id to Uuid which i
 composer require diadal/passport
 ```
 
-Laravel 5.5 hight auto discover package  you may need to register in your config app.php
+Laravel 5.5 hight auto discover package  you may need to register in your config app.php under `providers`
 ```php
 Diadal\Passport\PassportServiceProvider::class,
 ```
+Next in `app/Providers/AppServiceProvider.php` add `\Laravel\Passport\Passport::ignoreMigrations();` to `register`
+```php
+public function register()
+    {
+        //....
+        \Laravel\Passport\Passport::ignoreMigrations();
+    }
+```
+
+Next
 ```php
 php artisan config:clear
 ```
