@@ -92,6 +92,8 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Passport::routes();
+        \Laravel\Passport\Passport::useClientModel(\Diadal\Passport\Client::class);
+        \Laravel\Passport\Passport::usePersonalAccessClientModel(\Diadal\Passport\PersonalAccessClient::class);
 
         Passport::tokensCan([
             'all' => 'All Function',
