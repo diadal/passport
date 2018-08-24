@@ -3,11 +3,18 @@
 namespace Diadal\Passport;
 
 use Laravel\Passport\ClientRepository as ClientRepositoryDiadal;
-use Emadadly\LaravelUuid\Uuids;
+use Webpatser\Uuid\Uuid;
 
 class ClientRepository extends ClientRepositoryDiadal
 {
-    use Uuids;
+
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(function ($model) {
+            $model->id = (string) Uuid::generate(4);
+        });
+    }
     public function create($userId, $name, $redirect, $personalAccess = false, $password = false)
     {
         $client = Passport::client()->forceFill([

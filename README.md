@@ -110,32 +110,10 @@ class AuthServiceProvider extends ServiceProvider
 Next, you should run the `passport:install` command
 ```php
 php artisan passport:install
-```
-Next, to create `config/uuid.php` file
-```php
-Discovered Package: webpatser/laravel-uuid
-```
-
-Next change the default config in `config/uuid.php`   to `'default_uuid_column' => 'id',` if you dont have uuid.php in your config folder create 1 
+``` 
 
 ```php
-<?php
-
-return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Uuid Column
-    |--------------------------------------------------------------------------
-    |
-    | Every model that needs to be scoped by uuid
-    | should have a uuid column that reference the uuid value.
-    |
-    */
-
-    'default_uuid_column' => 'id',
-
-];
+php artisan config:clear
 ```
 
 All default Laravel Passport remain the same  

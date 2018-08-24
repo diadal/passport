@@ -3,14 +3,20 @@
 namespace Diadal\Passport;
 
 use \Laravel\Passport\PersonalAccessClient as PersonalAccessClientDiadal;
-use \Emadadly\LaravelUuid\Uuids;
+use \Webpatser\Uuid\Uuid;
 
 class PersonalAccessClient extends PersonalAccessClientDiadal
 {
-    // do not remove uuids
-    use Uuids;
+    
     public $incrementing = false;
     
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(function ($model) {
+            $model->id = (string) Uuid::generate(4);
+        });
+    }
     public function getIdAttribute($value) 
     {
         return (strtolower($value));
@@ -18,7 +24,7 @@ class PersonalAccessClient extends PersonalAccessClientDiadal
     public function setIdAttribute($value)
     {
         
-        $this->attributes['id'] = strtoupper($value);  
+        $this->attributes['id'] = strtoupper(Uuid::generate());  
         
     }
     public function setClientIdAttribute($value)

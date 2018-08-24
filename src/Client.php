@@ -3,12 +3,18 @@
 namespace Diadal\Passport;
 
 use \Laravel\Passport\Client as ClientDiadal;
-use Emadadly\LaravelUuid\Uuids;
+use \Webpatser\Uuid\Uuid;
 
 class Client extends ClientDiadal
 {
-    use Uuids;
     public $incrementing = false;
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(function ($model) {
+            $model->id = (string) Uuid::generate(4);
+        });
+    }
     
     public function getIdAttribute($value) 
     {
@@ -17,7 +23,7 @@ class Client extends ClientDiadal
 
     public function setIdAttribute()
     {
-        $id = \Uuid::generate(4);
+        $id = Uuid::generate();
         
         $this->attributes['id'] = strtoupper($id);  
         

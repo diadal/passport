@@ -12,7 +12,6 @@
     "require": {
        "php": ">=7.1",
        "webpatser/laravel-uuid": "^3.0",
-       "emadadly/laravel-uuid": "1.*",
        "laravel/passport": "^6.0"
     },
     "autoload": {
