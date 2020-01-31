@@ -2,9 +2,10 @@
 
 namespace Diadal\Passport\Console;
 
-use phpseclib\Crypt\RSA;
-use Diadal\Passport\Passport;
 use Illuminate\Console\Command;
+use Illuminate\Support\Arr;
+use Diadal\Passport\Passport;
+use phpseclib\Crypt\RSA;
 
 
 class KeysCommand extends Command
@@ -33,20 +34,21 @@ class KeysCommand extends Command
      */
     public function handle(RSA $rsa)
     {
-        $keys = $rsa->createKey($this->input ? (int) $this->option('length') : 4096);
-
-        list($publicKey, $privateKey) = [
+        [$publicKey, $privateKey] = [
             Passport::keyPath('oauth-public.key'),
             Passport::keyPath('oauth-private.key'),
         ];
 
         if ((file_exists($publicKey) || file_exists($privateKey)) && ! $this->option('force')) {
-            return $this->error('Encryption keys already exist. Use the --force option to overwrite them.');
+            $this->error('Encryption keys already exist. Use the --force option to overwrite them.');
+        } else {
+            $keys = $rsa->createKey($this->input ? (int) $this->option('length') : 4096);
+
+            file_put_contents($publicKey, Arr::get($keys, 'publickey'));
+            file_put_contents($privateKey, Arr::get($keys, 'privatekey'));
+
+            $this->info('Encryption keys generated successfully.');
         }
-
-        file_put_contents($publicKey, array_get($keys, 'publickey'));
-        file_put_contents($privateKey, array_get($keys, 'privatekey'));
-
-        $this->info('Encryption keys generated successfully.');
     }
+
 }

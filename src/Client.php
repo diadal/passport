@@ -25,12 +25,12 @@ class Client extends ClientDiadal
     {
         $id = Uuid::generate();
         
-        $this->attributes['id'] = strtoupper($id);  
+        $this->attributes['id'] = ($id);  
         
     }
     public function setUserIdAttribute($value)
     {   
-        $this->attributes['user_id'] = strtoupper($value);
+        $this->attributes['user_id'] = ($value);
     }
 
 

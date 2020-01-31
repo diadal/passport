@@ -15,22 +15,22 @@ class ClientRepository extends ClientRepositoryDiadal
             $model->id = (string) Uuid::generate(4);
         });
     }
-    public function create($userId, $name, $redirect, $personalAccess = false, $password = false)
-    {
-        $client = Passport::client()->forceFill([
-            'user_id' => strtoupper($userId),
-            'name' => $name,
-            'secret' => str_random(40),
-            'redirect' => $redirect,
-            'personal_access_client' => $personalAccess,
-            'password_client' => $password,
-            'revoked' => false,
-        ]);
+    // public function create($userId, $name, $redirect, $personalAccess = false, $password = false)
+    // {
+    //     $client = Passport::client()->forceFill([
+    //         'user_id' => ($userId),
+    //         'name' => $name,
+    //         'secret' => str_random(40),
+    //         'redirect' => $redirect,
+    //         'personal_access_client' => $personalAccess,
+    //         'password_client' => $password,
+    //         'revoked' => false,
+    //     ]);
 
-        $client->save();
+    //     $client->save();
 
-        return $client;
-    }
+    //     return $client;
+    // }
     public function createPersonalAccessClient($userId, $name, $redirect)
     {
         return tap($this->create($userId, $name, $redirect, true), function ($client) {

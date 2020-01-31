@@ -24,12 +24,12 @@ class PersonalAccessClient extends PersonalAccessClientDiadal
     public function setIdAttribute($value)
     {
         
-        $this->attributes['id'] = strtoupper(Uuid::generate());  
+        $this->attributes['id'] = (Uuid::generate());  
         
     }
     public function setClientIdAttribute($value)
     {   
-        $this->attributes['client_id'] = strtoupper($value);
+        $this->attributes['client_id'] = ($value);
     }
     
 
