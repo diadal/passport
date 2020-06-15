@@ -13,7 +13,7 @@
     "require": {
        "php": ">=7.1",
        "webpatser/laravel-uuid": "^3.0",
-       "laravel/passport": "6.*|7.*|8.*"
+       "laravel/passport": "6.*|7.*|8.*|9.*"
     },
     "autoload": {
         "psr-4": {
