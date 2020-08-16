@@ -124,4 +124,6 @@ Documentation for Passport can be found on the [Laravel website](http://laravel.
 
 Any issue <a href="https://github.com/diadal/passport/issues">check here</a> 
 
+also you can buy me a coffee @ [Patreon](https://www.patreon.com/diadal)
+
 
